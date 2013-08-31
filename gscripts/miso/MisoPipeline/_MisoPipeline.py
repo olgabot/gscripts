@@ -51,11 +51,13 @@ class MisoPipeline(object):
         # Initialize the IDs we're going to use
         self.insert_len_job_id = dict((sample_id, None) for sample_id in
                                       self.sample_ids)
-        self.psi_job_is_array = False
-        self.psi_job_id = dict((sample_id, None) for sample_id in
-                                      self.sample_ids)
-        self.summary_job_id = dict((sample_id, None) for sample_id in
-                                      self.sample_ids)
+        self.psi_job_is_array = True
+        self.psi_job_id = None
+            # dict((sample_id, None) for sample_id in
+            #                           self.sample_ids)
+        self.summary_job_id = None
+            # dict((sample_id, None) for sample_id in
+            #                           self.sample_ids)
 
         self.psi_walltime = cl.args['psi_walltime']
         self.summary_walltime = cl.args['summary_walltime']
@@ -315,7 +317,7 @@ class MisoPipeline(object):
 #            psi_name = 'miso_%s_psi' % (self.event_type)
 
 
-            job_name = '%s_%s' % (sample_id, psi_name)
+            # job_name = '%s_%s' % (sample_id, psi_name)
 
             # submit_sh = '%s_%s.sh' % (submit_sh_base, sample_id)
             # all_submit_sh.append('\n# --- %s --- #\nqsub %s\n' %
